@@ -1,0 +1,1292 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2021春招面经总结, IT,程序员,技术博客">
+    <meta name="description" content="保融科技(offer)
+3.10 当天连着两面
+
+一面
+全程围绕项目
+
+
+Spring Cloud中用到了哪些组件
+Redis都在哪些地方用到过？
+缓存雪崩如何解决？
+MySQL读写分离的好处是什么？
+系统中最长的一个SQL语句是什么？
+N">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>2021春招面经总结 | stackSg</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">stackSg</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="https://stacksg.gitee.io/" target="_blank" rel="noopener" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>笔记</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">stackSg</div>
+        <div class="logo-desc">
+            
+            stackSg Java程序员 技术博客 个人网站
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="https://stacksg.gitee.io/" target="_blank" rel="noopener" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			笔记
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        2021春招面经总结
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%9D%A2%E7%BB%8F/">
+                                <span class="chip bg-color">面经</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%A0%A1%E6%8B%9B/">
+                                <span class="chip bg-color">校招</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%B1%82%E8%81%8C/" class="post-category">
+                                求职
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-12
+                </div>
+                
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-05-15
+                </div>
+                
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="保融科技-offer"><a href="#保融科技-offer" class="headerlink" title="保融科技(offer)"></a>保融科技(offer)</h3><ul>
+<li>3.10 当天连着两面</li>
+</ul>
+<h4 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h4><ul>
+<li>全程围绕项目</li>
+</ul>
+<ol>
+<li>Spring Cloud中用到了哪些组件</li>
+<li>Redis都在哪些地方用到过？</li>
+<li>缓存雪崩如何解决？</li>
+<li>MySQL读写分离的好处是什么？</li>
+<li>系统中最长的一个SQL语句是什么？</li>
+<li>Nacos用的多少版本？有没有搭建过集群</li>
+<li>为什么用Netty而不是其他网络编程框架？</li>
+<li>快排的核心思想说一下。</li>
+</ol>
+<ul>
+<li>面试官说我项目经验比较丰富，他一般是问基础的。虽然项目很水，但也印证了面试得有项目是真的重要，那样面试官可以全程听你讲，不会问多少问题，就不会问到你不了解的地方去。</li>
+</ul>
+<h4 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h4><ul>
+<li>全程围绕唠嗑</li>
+</ul>
+<ol>
+<li>实现了四种序列化算法，为什么实现四种？</li>
+<li>他们都有什么区别？</li>
+<li>推荐用哪种？</li>
+<li>两种负载均衡算法说一下，还有什么其他的算法，为什么没实现？</li>
+<li>问期望薪资，我说了9-12k，面试官说范围太广，应该说一个准确的数字。</li>
+<li>问他们公司的业务有前途吗？我有点慌，因为确实好像没啥，但是不知道说什么，下次应该说还不了解，然后反问。</li>
+<li>学Java是出于爱好吗？</li>
+<li>能现在来实习吗？回答的不好，应该表示迫切想去公司。</li>
+</ol>
+<h3 id="杭州品铂-offer"><a href="#杭州品铂-offer" class="headerlink" title="杭州品铂(offer)"></a>杭州品铂(offer)</h3><h4 id="3-17-一面"><a href="#3-17-一面" class="headerlink" title="3.17 一面"></a>3.17 一面</h4><ol>
+<li>抽象类和接口的区别？</li>
+<li>String StringBuilder StringBuffer 区别？</li>
+<li>说一下final关键字</li>
+<li>HashTable和ConrrentHashMap区别</li>
+<li>MySQL行锁和表锁</li>
+<li>如何用MySql实现乐观锁</li>
+<li>JVM垃圾回收机制</li>
+<li>CMS回收过程</li>
+<li>UDP通信涉及的Java类</li>
+<li>说一下NIO</li>
+<li>什么是缓存穿透</li>
+<li>Linux查看内存占用的命令</li>
+<li>Linux查看端口占用情况</li>
+<li>Linux kill命令了解吗</li>
+<li>Spring MVC执行流程</li>
+<li>JDBC中如何防止SQL注入？</li>
+<li>如何实现线程安全的单例？</li>
+<li>写JS和写VUE的区别和感受</li>
+<li>用过的前端框架的区别？</li>
+<li>Spring事务传播行为</li>
+</ol>
+<h4 id="二面-1"><a href="#二面-1" class="headerlink" title="二面"></a>二面</h4><ul>
+<li>类似hr面，全程闲聊</li>
+</ul>
+<ol>
+<li>家庭情况，爱好</li>
+<li>97年毕业年龄偏大了，为什么</li>
+<li>解释说了专升本，偏科英语不好等</li>
+<li>没考上本科和你们甘肃地区教育水平有关系吗(更多还是自身原因吧)</li>
+<li>怎么评价你自己，在英语这块看来你不想往前走，在升本及其他方面看来，又有一股冲劲？(这个问题触及我的灵魂)</li>
+<li>反问公司情况，团队情况</li>
+</ol>
+<h3 id="美团-hr挂"><a href="#美团-hr挂" class="headerlink" title="美团(hr挂)"></a>美团(hr挂)</h3><h4 id="一面-3-19"><a href="#一面-3-19" class="headerlink" title="一面 3.19"></a>一面 3.19</h4><ul>
+<li>上来面试官问算法学的怎么样，我说入门水平</li>
+</ul>
+<ol>
+<li>反转链表</li>
+<li>N个长度不一的有序数组的TOPK问题</li>
+<li>使用过那些 java 集合框架</li>
+<li>说说 HashMap 1.7到1.8所做的优化</li>
+<li>concurrentHashMap怎么实现的线程安全，还用过哪些线程安全的map(脑子短路没想起来其他的。。)</li>
+<li>JVM了解哪些内容，说下运行时数据区域，栈帧里面存放的什么内容</li>
+<li>说说分代垃圾回收过程</li>
+<li>常用的存储引擎，Innodb的优点</li>
+<li>平常怎么使用索引的，联合索引使用时遵从什么原则</li>
+<li>那你了解最左匹配的底层原理吗</li>
+<li>B+树的优点，和红黑树相比为什么使用b+树</li>
+<li>b+树具体怎么存储的，节点中的数据和表怎么对应的</li>
+<li>mysql事务怎么实现的</li>
+<li>一个大事务会有什么问题？怎么避免出现大事务</li>
+<li>分布式事务、两阶段提交 本地消息表</li>
+<li>Spring IOC，AOP 的概念和原理</li>
+<li>微服务有哪些组件，注册中心解决了什么问题</li>
+<li>负载均衡算法</li>
+<li>在淘宝、天猫这种大型分布式网站中，有其中一两个页面响应特别满，怎么去解决它？(实在没思路，说了通过调用链排查问题，具体优化，追问描述的太宽泛，能不能提供具体思路。。最后不了了之)</li>
+<li>面试官：由于时间关系，今天就面到这，你有什么想问的吗？</li>
+<li>我：业务方向，挑战，我答的怎么样<br>结束</li>
+</ol>
+<ul>
+<li>对于一些开放性问题答的不好，如何优化SQL 优化性能</li>
+</ul>
+<h4 id="二面-3-29-37min"><a href="#二面-3-29-37min" class="headerlink" title="二面 3.29 (37min)"></a>二面 3.29 (37min)</h4><ol>
+<li>java的异常体系</li>
+<li>volatile</li>
+<li>Java8的了解</li>
+<li>MySQL主从复制 除了分离还有其他作用吗</li>
+<li>图论怎么表示一个图 怎么判断图是否有环</li>
+<li>操作系统死锁的概念 怎么解决</li>
+<li>TCP UDP区别</li>
+<li>Http各版本之间的区别</li>
+<li>算法：最小栈</li>
+</ol>
+<h3 id="虾皮-hr挂"><a href="#虾皮-hr挂" class="headerlink" title="虾皮(hr挂)"></a>虾皮(hr挂)</h3><h4 id="3-21-一面"><a href="#3-21-一面" class="headerlink" title="3.21 一面"></a>3.21 一面</h4><ul>
+<li>是个小姐姐</li>
+</ul>
+<ol>
+<li>常见的线程池，固定线程数的线程池会回收线程吗(如果设置allowCoreThreadTimeOut(true)，则会也作用于核心线程。)，线程池拒绝策略</li>
+<li>JVM，垃圾回收算法与垃圾回收过程，大对象问题，分代年龄问题</li>
+<li>垃圾标记算法，引用计数，可达性分析，GCRoot</li>
+<li>Redis基本数据类型与底层实现，用哪个Redis数据结构实现优先级队列</li>
+<li>Redis持久化策略。RDB，AOF，优点与缺点</li>
+<li>知道的排序算法，他们哪个是稳定的(这个忘了。。尴尬)<a href="https://blog.csdn.net/qq_44738160/article/details/98648931" target="_blank" rel="noopener">排序稳定性</a><br>选择排序 不稳定 [5 8 5 2 9]<br>希尔排序 不稳定 分在不同组但相同的数据次序无法保证<br>快速排序 不稳定 一趟快排过程会导致相同的值交换过后次序颠倒<br>堆排序   不稳定 堆顶元素弹出后，会将堆中最后一个元素交换到堆顶，导致相等元素次序变化</li>
+<li>数组与链表的优缺点</li>
+<li>算法一万个数里面找到最大的10个数(TOPK 问题)，如何找到一个链表中间的值(快慢指针)，如何找到有序数组最中间数字的下标(二分法)</li>
+<li>布隆过滤器</li>
+<li>详细说说 MySql 事务隔离级别，读未提交，读已提交，可重复读，串行化</li>
+<li>共享锁与排它锁,他们的语法是什么(这个忘了)</li>
+<li>索引分类,使用索引的好处，主键索引</li>
+<li>索引什么情况下会失效</li>
+<li>Redis 数据淘汰策略</li>
+<li>如果你缓存的数据修改了，怎么保证一致性</li>
+<li>HTTPS和HTTP区别</li>
+<li>说说你知道的HTTP攻击方式，挑一个详细说一下</li>
+<li>死锁的条件有哪些，你通常用什么手段解决</li>
+<li>进程间的通信方式</li>
+<li>缓存穿透、缓存雪崩、缓存击穿</li>
+<li>一维转置数组找最小值(二分法)</li>
+<li>反转链表</li>
+<li>反问业务情况和表现(面试官说表现不错，就是语速可以快一点)</li>
+</ol>
+<h4 id="3-27-二面-40min"><a href="#3-27-二面-40min" class="headerlink" title="3.27 二面 (40min)"></a>3.27 二面 (40min)</h4><ol>
+<li>自我介绍</li>
+<li>synchronized锁升级过程</li>
+<li>创建线程的方式</li>
+<li>常用的线程池</li>
+<li>线程池拒绝策略，你项目里经常使用哪种策略，调用方线程完成任务有什么问题没有？</li>
+<li>说说你对Netty的认识</li>
+<li>Netty异步编程怎么做的</li>
+<li>对死锁的认识，怎么发现和解决</li>
+<li>调用write函数后操作系统层面的执行过程(不知道，凭感觉说的)</li>
+<li>单例模式的实现方式</li>
+<li>Redis在项目里用在什么地方</li>
+<li>怎么保证缓存和数据库的一致性</li>
+<li>先删缓存再删数据库会有问题吗，怎么解决(不知道)</li>
+<li>RPC项目长连接心跳机制</li>
+<li>Netty粘包和拆包怎么解决</li>
+<li>TCP四次挥手time_wait的作用</li>
+<li>MySQL怎么实现的可重复读隔离级别</li>
+<li>在线教育项目设计了哪些表</li>
+<li>项目中怎么使用索引的</li>
+<li>会根据性别建立索引吗</li>
+<li>树的层序遍历</li>
+<li>Http和Https的区别</li>
+<li>有哪些对称加密和非对称加密算法，现在比较好的对称加密有哪些？(不知道)</li>
+<li>如何判断链表是否有环</li>
+<li>项目中的难题怎么解决(百度、调试、找同学看代码(面试官说这时候体现出结对编程的好处了哈哈)</li>
+<li>平常逛哪些技术网站</li>
+<li>会读官方手册吗</li>
+<li>最近对哪块技术比较感兴趣</li>
+<li>看过哪些技术类书籍</li>
+<li>反问(面试官做数字银行类的业务)</li>
+</ol>
+<h3 id="华为外包-一面挂"><a href="#华为外包-一面挂" class="headerlink" title="华为外包(一面挂)"></a>华为外包(一面挂)</h3><h4 id="3-22-一面"><a href="#3-22-一面" class="headerlink" title="3.22 一面"></a>3.22 一面</h4><ol>
+<li><a href="https://leetcode-cn.com/problems/contains-duplicate-iii/" target="_blank" rel="noopener">220. 存在重复元素 III</a></li>
+<li>Object 类中的方法</li>
+<li>HashCode equals讲一下</li>
+<li>Collection 接口，随机访问、List、Set、PriorityQueue、Stack</li>
+<li>如何仅用队列结构实现栈结构(一个队列)、如何仅用栈结构实现队列结构</li>
+<li>遍历、迭代器的关系</li>
+<li>泛型 super extends</li>
+<li>基本数据类型、Integer,缓存池</li>
+<li>DCL 单例模式</li>
+<li>异常</li>
+<li>final</li>
+<li>同步代码，与同步方法</li>
+<li>ThreadLocal</li>
+<li>finalize</li>
+<li>Spring IOC，装配流程，包扫描怎么实现的 调哪个方法</li>
+<li>反问</li>
+</ol>
+<h3 id="跟谁学-hr挂"><a href="#跟谁学-hr挂" class="headerlink" title="跟谁学(hr挂)"></a>跟谁学(hr挂)</h3><h4 id="3-24-一面"><a href="#3-24-一面" class="headerlink" title="3.24 一面"></a>3.24 一面</h4><ol>
+<li>抽象类和接口的区别 Java中你见过的抽象类</li>
+<li>集合你用过哪些 hashmap的数据结构 concurrenthashmap怎么实现线程安全的 </li>
+<li>concurrenthashmap和hashmap在结构上有区别吗</li>
+<li>创建线程的方式</li>
+<li>线程池参数 线程池执行任务的流程</li>
+<li>volatile线程安全吗</li>
+<li>有50个线程，五个五个执行，五个一起执行完，用JUC里的哪个工具实现</li>
+<li>JVM类加载器</li>
+<li>双亲委派模型</li>
+<li>Redis在你项目里用在了什么地方</li>
+<li>为什么想到实现一个RPC框架</li>
+<li>RPC框架中的难点</li>
+<li>算法题：给你一棵二叉树，请你返回层数最深的叶子节点的和。<br>输入：root = [1,2,3,4,5,null,6,7,null,null,null,null,8]<br>输出：15<br>(一激动题理解错了。。做成了叶子节点的和，面试官也没有指出。。)</li>
+<li>反问</li>
+</ol>
+<h4 id="3-26-二面"><a href="#3-26-二面" class="headerlink" title="3.26 二面"></a>3.26 二面</h4><ol>
+<li>自我介绍</li>
+<li>为什么只实习了两个月</li>
+<li>基础知识了解过哪些</li>
+<li>说一下你对垃圾回收的理解</li>
+<li>TCP为什么三次握手 4G基站和手机四次握手你觉得是为了解决什么问题</li>
+<li>Java中的TreeSet和Redis中的zset分别用了红黑树和跳表，是出于什么考虑</li>
+<li>Linux中搜索日志内容</li>
+<li>Linux查看CPU和内存占用情况, TOP命令中load参数怎么算出来的</li>
+<li>写一个方法，传入一个int型参数，将这个int型数字进行反序。如传入的数字123，那么返回的就是321，传入的数字是2589，返回的就是9852。要求，不允许使用String，数组，List，map等集合。</li>
+<li>注意题目中的一些异常情况</li>
+<li>反问</li>
+<li>对我的评价(面试官：我们这边不做这种评价，你可以问其他的)</li>
+<li>您这边部门业务和所用的技术(只说了两句，没听明白)</li>
+<li>结束</li>
+</ol>
+<h3 id="网易有道"><a href="#网易有道" class="headerlink" title="网易有道"></a>网易有道</h3><h4 id="3-25-一面"><a href="#3-25-一面" class="headerlink" title="3.25 一面"></a>3.25 一面</h4><ol>
+<li>算法：多叉树每一层的最大值</li>
+<li>算法：最长不重复子串</li>
+<li>TCP 连接的过程 </li>
+<li>完全二叉树叶子节点个数</li>
+<li>redis你了解哪些</li>
+<li>缓存与数据库一致性</li>
+<li>垃圾回收算法 其他语言的垃圾回收算法有了解吗</li>
+<li>SQL 优化了解什么</li>
+<li>负载均衡算法</li>
+<li>项目</li>
+<li>Linux 只输出第一千行</li>
+<li>docker有了解吗</li>
+<li>反问</li>
+</ol>
+<h4 id="3-30-二面"><a href="#3-30-二面" class="headerlink" title="3.30 二面"></a>3.30 二面</h4><ol>
+<li>问实习</li>
+<li>分页查询怎么用索引优化</li>
+<li>实习时候数据量多少(我说实习在测试库开发的，没关心过。。头铁)</li>
+<li>集合类了解哪些</li>
+<li>ArrayList LinkedList在哪些情况下会用到</li>
+<li>HashMap扩容过程，默认大小，并发下会出现的问题</li>
+<li>三个线程并发修改数据库，其中一个抛异常，怎么让另一个停下来(我说用两阶段终止模式，打断)</li>
+<li>说说MySQL索引(说了InnoDB中的索引)</li>
+<li>IO相关的知识</li>
+<li>说说RPC框架的层次划分(这里有点迷糊)</li>
+<li>对序列化的认识，这些算法有什么区别</li>
+<li>算法：5000万个int，2G内存，找到1000个最大的数</li>
+<li>反问</li>
+</ol>
+<h4 id="4-6-三面-60min"><a href="#4-6-三面-60min" class="headerlink" title="4.6 三面(60min)"></a>4.6 三面(60min)</h4><ul>
+<li>全程围绕限流这个问题</li>
+</ul>
+<ol>
+<li>如何设计一个针对账号限流的系统，比如一小时最多访问1000次？根据回答情况提出新问题，整体比较灵活，面经参考价值不大</li>
+<li>如何测试设计好的限流系统，功能测试 性能测试 ，如何设计单元测试？</li>
+<li>剩下唠嗑</li>
+<li>秋招怎么没有签公司</li>
+<li>跟秋招相比哪里有进步</li>
+<li>选工作看重哪些方面</li>
+<li>反问</li>
+</ol>
+<h4 id="4-14-HR面-10min"><a href="#4-14-HR面-10min" class="headerlink" title="4.14 HR面(10min)"></a>4.14 HR面(10min)</h4><ol>
+<li>自我介绍</li>
+<li>投网易有道的理由</li>
+<li>选offer看重哪些因素？</li>
+<li>面试中最有挑战的点或者觉得最困难的点是什么？</li>
+<li>强调了专升本学历，面试官问我怎么看待这个问题(我回答谋事在人，成事在天)</li>
+<li>期望薪资</li>
+</ol>
+<h4 id="4-18-OC"><a href="#4-18-OC" class="headerlink" title="4.18 OC"></a>4.18 OC</h4><ol>
+<li>交流了选offer看重的点，手头有哪些offer，想不想来网易有道</li>
+<li>谈了薪资</li>
+<li>说offer还在审批中，下周会发到</li>
+</ol>
+<h4 id="4-25-offer"><a href="#4-25-offer" class="headerlink" title="4.25 offer"></a>4.25 offer</h4><ul>
+<li>等了好久的offer终于来了</li>
+</ul>
+<h3 id="浙江公众信息-offer"><a href="#浙江公众信息-offer" class="headerlink" title="浙江公众信息(offer)"></a>浙江公众信息(offer)</h3><h4 id="3-26-30min"><a href="#3-26-30min" class="headerlink" title="3.26(30min)"></a>3.26(30min)</h4><ol>
+<li>自我介绍</li>
+<li>实习和竞赛情况</li>
+<li>技术方面问题</li>
+<li>hr方面问题</li>
+<li>反问公司业务和公司使用技术</li>
+</ol>
+<h4 id="3-30-OC-offer"><a href="#3-30-OC-offer" class="headerlink" title="3.30 OC offer"></a>3.30 OC offer</h4><ul>
+<li>3.29号打电话解释专升本后被拒绝了，隔天打电话说笔试不错，通过了</li>
+</ul>
+<ol>
+<li>介绍薪资和福利待遇</li>
+</ol>
+
+            </div>
+            <hr/>
+
+            <!-- 文章内容版权申明区 -->
+            <!-- 
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://stacksg.club" rel="external nofollow noreferrer">L</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://stacksg.club/2021/03/12/work/2021-chun-zhao-mian-jing-zong-jie/">https://stacksg.club/2021/03/12/work/2021-chun-zhao-mian-jing-zong-jie/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://stacksg.club" target="_blank">L</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+ -->
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E9%9D%A2%E7%BB%8F/">
+                                    <span class="chip bg-color">面经</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%A0%A1%E6%8B%9B/">
+                                    <span class="chip bg-color">校招</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'e6e84f933c1b9d0f0c0f',
+        clientSecret: 'f368b0470cde76f04050c50be9ec0641f2a4b1bd',
+        repo: 'blog-comments',
+        owner: 'stackSg',
+        admin: "stackSg",
+        id: '2021-03-12T08-41-37',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/12/25/java/jian-kong/lian-lu-zhui-zong/skywalking/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Skywalking">
+                        
+                        <span class="card-title">Skywalking</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Skywalking概述什么是APM
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%9B%91%E6%8E%A7/">
+                        <span class="chip bg-color">监控</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/">
+                        <span class="chip bg-color">链路追踪</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/07/work/2021-chun-zhao-bi-shi-ti-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="2021春招笔试题总结">
+                        
+                        <span class="card-title">2021春招笔试题总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            笔试题问题总结
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B1%82%E8%81%8C/" class="post-category">
+                                    求职
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%A0%A1%E6%8B%9B/">
+                        <span class="chip bg-color">校招</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AF%95/">
+                        <span class="chip bg-color">笔试</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://stacksg.club" target="_blank">L</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "10";
+                    var startDate = "5";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn/" target="_blank">津ICP备20000280号-1</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/stacksg" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:960479870@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=960479870" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 960479870" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: ""
+        });
+        daovoice('update');
+    </script>
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
